@@ -1,27 +1,25 @@
 import sys
 
-if __name__ == '__main__':
-    line_number = 0
-    file = open(sys.argv[1], "r")
-    error = 0
-    for line in file.readlines():
-        line = line.strip()
-        if len(line)!= 5:
-            error = 1
-            break
-        if line_number == 0 or line_number == 2:
-            if line[1] == '*' and line[3] == '*':
-                error = 1
-                break
-        elif line_number == 1:
-            if line[2] == '*':
-                error = 0
-                break
+def check_file(filename):
+    try:
+        with open(filename, "r") as file:
+            lines = file.read().splitlines()
+
+        if (
+            len(lines) == 3
+            and len(lines[0]) == len(lines[1]) == len(lines[2]) == 5
+            and lines[0][1] != "*" and lines[0][3] != "*"
+            and lines[1][2] != "*"
+        ):
+            return "True"
         else:
-            error = 1
-            break
-        line_number+=1
-    if error:
-        print("Error")
+            return "Error"
+    except (IOError, IndexError):
+        return "Error"
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python script.py filename")
     else:
-        print("True")
+        result = check_file(sys.argv[1])
+        print(result)
