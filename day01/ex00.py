@@ -13,7 +13,6 @@ def empty(purse):
     return {"gold_ingots": 0}
 
 
-if __name__ == "__main__":
-    purse = {}
-    # new_purse = empty(purse)
-    print(add_ingot(get_ingot(add_ingot(empty(purse)))))
+# if __name__ == "__main__":
+#     purse = {'gold_ingots': 10}
+#     print(add_ingot(get_ingot(add_ingot(purse))))
