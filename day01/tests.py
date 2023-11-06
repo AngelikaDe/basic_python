@@ -1,7 +1,7 @@
 import unittest
 import ex01, ex00
 
-class TestStringMethods(unittest.TestCase):
+class TestEx00(unittest.TestCase):
     def test_add_get_empty(self):
         purse = {}
         res = add_ingot(get_ingot(add_ingot(empty(purse))))
@@ -12,6 +12,9 @@ class TestStringMethods(unittest.TestCase):
         res = add_ingot(get_ingot(add_ingot(purse)))
         self.assertEqal(res.get("gold_ingots"),11)
 
+
+class TestEx01(unittest.TestCase):
+    pass
 
 
 if __name__ == '__main__':
