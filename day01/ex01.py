@@ -1,5 +1,7 @@
-from ex00 import add_ingot, get_ingot, empty
+from ex00 import add_ingot, get_ingot, empty, sqeak
 
+
+@sqeak
 def split_booty(*purses):
     purse_res = []
     prev_number = purses[0].get("gold_ingots", 1)
@@ -23,6 +25,7 @@ def split_booty(*purses):
     if purse_res[-2].get("gold_ingots") == purse_res[-1].get("gold_ingots"):
         add_ingot(purse_res[-1])
     return purse_res
+
 
 # if __name__ == "__main__":
 #     purses = [{"gold_ingots": 0}, {"ggold_ingots_currold_ingots": 0}, {"apples": 10}]
